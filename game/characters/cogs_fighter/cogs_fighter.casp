@@ -1,0 +1,150 @@
+:Character:
+## This is the Character block, where you add some basic information about your character that can be accessed from outside, like their name or place on the select screen.
+## You can also add another file to this with the Skeleton: property.
+
+Name: Cogs Fighter
+EditorName: Cogs Fighter
+:Variables:
+def GRAPHICS_UseSprites bool() = 1
+def GRAPHICS_Scale int() = 3000
+def GRAPHICS_Spritesheet_3DPixelsize int() = 100000
+def GRAPHICS_Spritesheet_OriginX int() = 64
+def GRAPHICS_Spritesheet_OriginY int() = 28
+
+def GRAPHICS_Spritesheet_Path str() = res://game/characters/cogs_fighter/spritesheet_thick.png
+
+def GRAPHICS_Spritesheet_NbX int() = 4
+def GRAPHICS_Spritesheet_NbY int() = 4
+
+var animFrame int() = 0
+internal _StateFrameID
+:236H:
+AttackRegister(Heavy, 236H)
+
+AttackDamage(2000)
+AttackDuration(40)
+
+F1-9:
+	Sprite(5)
+endif
+
+F6-15:
+	Sprite(6)
+endif
+
+F15:
+	AddMomentum(1000)
+endif
+
+F15-25:
+	Sprite(7)
+	Hitbox(0, 12000, 18000, 7000)
+endif
+
+F25-40:
+	Sprite(8)
+endif
+
+F30:
+	V_AttackHasHit:
+		Transition(Stand)
+	endif
+endif
+:5P:
+AttackRegister(Light, 5P)
+
+AttackDamage(1000)
+AttackDuration(20)
+
+F1-6:
+	Sprite(3)
+endif
+
+F6-8:
+	Sprite(4)
+	Hitbox(0, 11000, 18000, 7000)
+endif
+:5Throw:
+# This will also initialize an attack, so you only need to put down a hitbox.
+AttackRegister(Throw)
+
+# This is your total animation time when whiffing.
+AttackDuration(30)
+AttackDamage(1000)
+
+F1-8:
+	Sprite(7)
+endif
+
+# This is the hitbox that throws.
+F8-10:
+    Hitbox(0, 10000, 0, 20000)
+endif
+:AnimAirborne:
+CallParent(AnimAirborne)
+
+Sprite(13)
+:AnimCrouching:
+CallParent(AnimCrouching)
+
+Mod(_StateFrameID, 60, animFrame)
+VanimFrame<=30:
+	Sprite(0)
+else
+	Sprite(1)
+endif
+:AnimHitstun:
+CallParent(AnimHitstun)
+
+Sprite(13)
+:AnimJumpB:
+CallParent(AnimJumpB)
+
+Sprite(12)
+:AnimJumpF:
+CallParent(AnimJumpF)
+
+Sprite(12)
+:AnimJumpN:
+CallParent(AnimJumpN)
+
+Sprite(12)
+:AnimKnockdown:
+CallParent(AnimKnockdown)
+
+Sprite(14)
+:AnimStand:
+CallParent(AnimStand)
+
+Mod(_StateFrameID, 120, animFrame)
+VanimFrame<=60:
+	Sprite(2)
+else
+	Sprite(3)
+endif
+:AnimWalkB:
+CallParent(AnimWalkB)
+
+Mod(_StateFrameID, 24, animFrame)
+VanimFrame<=8:
+	Sprite(11)
+else
+	VanimFrame<=16:
+		Sprite(10)
+	else
+		Sprite(9)
+	endif
+endif
+:AnimWalkF:
+CallParent(AnimWalkF)
+
+Mod(_StateFrameID, 24, animFrame)
+VanimFrame<=8:
+	Sprite(9)
+else
+	VanimFrame<=16:
+		Sprite(10)
+	else
+		Sprite(11)
+	endif
+endif
