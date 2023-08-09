@@ -6,6 +6,7 @@ Name: Cogs Fighter
 EditorName: Cogs Fighter
 :Variables:
 def GRAPHICS_UseSprites bool() = 1
+def GRAPHICS_PlayerPositionZOffset int() = 100
 def GRAPHICS_Scale int() = 3000
 def GRAPHICS_Spritesheet_3DPixelsize int() = 100000
 def GRAPHICS_Spritesheet_OriginX int() = 64
@@ -18,9 +19,6 @@ def GRAPHICS_Spritesheet_NbY int() = 4
 
 var animFrame int() = 0
 internal _StateFrameID
-internal _Player
-
-var PositionZ int() = 0
 :236H:
 AttackRegister(Heavy, 236H)
 
@@ -151,10 +149,3 @@ else
 		Sprite(11)
 	endif
 endif
-:Init-Main-Graphics:
-CallParent(Init-Main-Graphics)
-
-Set(PositionZ, _Player)
-Mul(PositionZ, 100)
-
-ModelPositionZ(PositionZ)
