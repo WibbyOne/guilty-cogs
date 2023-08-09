@@ -19,6 +19,8 @@ def GRAPHICS_Spritesheet_NbY int() = 4
 var animFrame int() = 0
 internal _StateFrameID
 internal _Player
+
+var PositionZ int() = 0
 :236H:
 AttackRegister(Heavy, 236H)
 
@@ -152,4 +154,7 @@ endif
 :Init-Main-Graphics:
 CallParent(Init-Main-Graphics)
 
-ModelPositionZ(_Player)
+Set(PositionZ, _Player)
+Mul(PositionZ, 100)
+
+ModelPositionZ(PositionZ)
