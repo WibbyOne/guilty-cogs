@@ -1,0 +1,4 @@
+[submodule "castagne"]
+	path = castagne
+	url = https://github.com/Atlinx/castagne.git
+	branch = custom-patch
