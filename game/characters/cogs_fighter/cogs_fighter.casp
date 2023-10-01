@@ -81,6 +81,24 @@ endif
 F8-10:
     Hitbox(0, 10000, 0, 20000)
 endif
+:6P:
+AttackRegister(Light)
+
+AttackDamage(1000)
+AttackDuration(30)
+
+F1-6:
+	Sprite(3)
+endif
+F6-8:
+	Sprite(4)
+    Hitbox(0, 10000, 10000, 30000)
+endif
+V_AttackHasTouched:
+	IJumpPress:
+		Transition(Jumpsquat)
+	endif
+endif
 :AnimAirborne:
 CallParent(AnimAirborne)
 
@@ -148,4 +166,7 @@ else
 	else
 		Sprite(11)
 	endif
+endif
+F6-8:
+Hitbox(0, 10000, 10000, 30000)
 endif
