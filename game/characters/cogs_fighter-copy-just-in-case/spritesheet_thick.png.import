@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spritesheet_thick.png-2d7c02b356362cb01d2315a2adea8f58.stex"
+path="res://.import/spritesheet_thick.png-610eec406b42c99e8b88b7f185ecda7b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/characters/cogs_fighter/spritesheet_thick.png"
-dest_files=[ "res://.import/spritesheet_thick.png-2d7c02b356362cb01d2315a2adea8f58.stex" ]
+source_file="res://game/characters/cogs_fighter-copy-just-in-case/spritesheet_thick.png"
+dest_files=[ "res://.import/spritesheet_thick.png-610eec406b42c99e8b88b7f185ecda7b.stex" ]
 
 [params]
 
