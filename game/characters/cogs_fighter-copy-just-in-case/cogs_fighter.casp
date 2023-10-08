@@ -1,0 +1,562 @@
+:Character:
+## This is the Character block, where you add some basic information about your character that can be accessed from outside, like their name or place on the select screen.
+## You can also add another file to this with the Skeleton: property.
+
+Name: Cogs Fighter
+EditorName: Cogs Fighter
+Skeleton: res://game/characters/cogs_fighter/skeleton.casp
+:Variables-Physics-Reactions-Techs:
+# Overriden
+## Customize the techs you can do when exiting hitstun
+
+#--- Grounded - Neutral
+def ATTACK_Tech_Grounded_Neutral_Time int() = 25
+def ATTACK_Tech_Grounded_Neutral_MomentumX int() = -800
+def ATTACK_Tech_Grounded_Neutral_MomentumY int() = 0
+
+#--- Grounded - Forward
+def ATTACKS_Tech_Grounded_CanTechForward bool() = 0
+def ATTACK_Tech_Grounded_Forward_Time int() = 10
+def ATTACK_Tech_Grounded_Forward_MomentumX int() = 600
+def ATTACK_Tech_Grounded_Forward_MomentumY int() = 800
+
+#--- Grounded - Backward
+def ATTACKS_Tech_Grounded_CanTechBackward bool() = 0
+def ATTACK_Tech_Grounded_Backward_Time int() = 10
+def ATTACK_Tech_Grounded_Backward_MomentumX int() = -800
+def ATTACK_Tech_Grounded_Backward_MomentumY int() = 800
+
+#--- Grounded - Up
+def ATTACKS_Tech_Grounded_CanTechUp bool() = 0
+def ATTACK_Tech_Grounded_Up_Time int() = 10
+def ATTACK_Tech_Grounded_Up_MomentumX int() = -400
+def ATTACK_Tech_Grounded_Up_MomentumY int() = 1800
+
+#--- Airborne - Neutral
+def ATTACK_Tech_Airborne_Neutral_Time int() = 10
+def ATTACK_Tech_Airborne_Neutral_MomentumX int() = -200
+def ATTACK_Tech_Airborne_Neutral_MomentumY int() = 800
+
+#--- Airborne - Forward
+def ATTACKS_Tech_Airborne_CanTechForward bool() = 0
+def ATTACK_Tech_Airborne_Forward_Time int() = 10
+def ATTACK_Tech_Airborne_Forward_MomentumX int() = 800
+def ATTACK_Tech_Airborne_Forward_MomentumY int() = 500
+
+#--- Airborne - Backward
+def ATTACKS_Tech_Airborne_CanTechBackward bool() = 0
+def ATTACK_Tech_Airborne_Backward_Time int() = 10
+def ATTACK_Tech_Airborne_Backward_MomentumX int() = -800
+def ATTACK_Tech_Airborne_Backward_MomentumY int() = 500
+
+#--- Airborne - Up
+def ATTACKS_Tech_Airborne_CanTechUp bool() = 0
+def ATTACK_Tech_Airborne_Up_Time int() = 10
+def ATTACK_Tech_Airborne_Up_MomentumX int() = 0
+def ATTACK_Tech_Airborne_Up_MomentumY int() = 1000
+
+#--- Airborne - Down
+def ATTACKS_Tech_Airborne_CanTechDown bool() = 0
+def ATTACK_Tech_Airborne_Down_Time int() = 10
+def ATTACK_Tech_Airborne_Down_MomentumX int() = 0
+def ATTACK_Tech_Airborne_Down_MomentumY int() = -500
+
+
+#--- Knockdown - Neutral
+def ATTACK_Tech_Knockdown_Neutral_Time int() = 30
+def ATTACK_Tech_Knockdown_Neutral_MomentumX int() = 0
+def ATTACK_Tech_Knockdown_Neutral_MomentumY int() = 0
+def ATTACK_Tech_Knockdown_Neutral_RecoverCrouching bool() = 1
+
+#--- Knockdown - Forward
+def ATTACKS_Tech_Knockdown_CanTechForward bool() = 0
+def ATTACK_Tech_Knockdown_Forward_Time int() = 30
+def ATTACK_Tech_Knockdown_Forward_MomentumX int() = 2000
+def ATTACK_Tech_Knockdown_Forward_MomentumY int() = 0
+def ATTACK_Tech_Knockdown_Forward_RecoverCrouching bool() = 1
+
+#--- Knockdown - Backward
+def ATTACKS_Tech_Knockdown_CanTechBackward bool() = 0
+def ATTACK_Tech_Knockdown_Backward_Time int() = 30
+def ATTACK_Tech_Knockdown_Backward_MomentumX int() = -2000
+def ATTACK_Tech_Knockdown_Backward_MomentumY int() = 0
+def ATTACK_Tech_Knockdown_Backward_RecoverCrouching bool() = 1
+
+#--- Knockdown - Up
+def ATTACKS_Tech_Knockdown_CanTechUp bool() = 0
+def ATTACK_Tech_Knockdown_Up_Time int() = 15
+def ATTACK_Tech_Knockdown_Up_MomentumX int() = 0
+def ATTACK_Tech_Knockdown_Up_MomentumY int() = 2000
+def ATTACK_Tech_Knockdown_Up_RecoverCrouching bool() = 0
+
+#--- All
+
+def MOVE_Tech_Friction_Ground int() = 20
+def MOVE_Tech_Friction_Air int() = 20
+def MOVE_Tech_Gravity int() = -50
+:Variables-Physics-Dashes:
+# Overriden
+
+## Movement data for dashes
+
+#--- Run
+def MOVE_Run_StartTime int() = 5
+def MOVE_Run_StopTime int() = 12
+def MOVE_Run_SpeedStart int() = 1900
+def MOVE_Run_Speed int() = 1500
+def MOVE_Run_SpeedStop int() = 500
+
+#--- StepDash
+def MOVE_StepDash_Time int() = 20
+def MOVE_StepDash_Speed int() = 2000
+
+#--- Backdash
+def MOVE_Backdash_Time int() = 20
+def MOVE_Backdash_Speed int() = -1000
+
+#--- Highjump
+def MOVE_Highjump_JumpsquatTime int() = 3
+def MOVE_Highjump_HighjumpN_InitialMomentumX int() = 0
+def MOVE_Highjump_HighjumpN_InitialMomentumY int() = 4000
+def MOVE_Highjump_HighjumpB_InitialMomentumX int() = -1200
+def MOVE_Highjump_HighjumpB_InitialMomentumY int() = 4000
+def MOVE_Highjump_HighjumpF_InitialMomentumX int() = 1200
+def MOVE_Highjump_HighjumpF_InitialMomentumY int() = 4000
+
+#--- Airjump
+def MOVE_Airjump_AirjumpN_InitialMomentumX int() = 0
+def MOVE_Airjump_AirjumpN_InitialMomentumY int() = 2500
+def MOVE_Airjump_AirjumpB_InitialMomentumX int() = -1200
+def MOVE_Airjump_AirjumpB_InitialMomentumY int() = 2500
+def MOVE_Airjump_AirjumpF_InitialMomentumX int() = 1200
+def MOVE_Airjump_AirjumpF_InitialMomentumY int() = 2500
+
+#--- Airdash
+def MOVE_Airdash_AirdashF_SpeedX int() = 2000
+def MOVE_Airdash_AirdashF_SpeedY int() = 0
+def MOVE_Airdash_AirdashF_Time int() = 15
+def MOVE_Airdash_AirdashB_SpeedX int() = -1500
+def MOVE_Airdash_AirdashB_SpeedY int() = 0
+def MOVE_Airdash_AirdashB_Time int() = 10
+
+#--- Air Actions
+def MOVE_AirActionsMax int() = 1
+:Variables-Physics-Base:
+# Overriden
+## Movement data for the basic states. 
+
+#--- Physics
+def MOVE_Gravity int() = -200
+def MOVE_Friction_Ground int() = 100
+def MOVE_Friction_Air int() = 2
+
+
+#--- Basic Movement
+def MOVE_Walk_SpeedF int() = 750
+def MOVE_Walk_SpeedB int() = -600
+def MOVE_Crawl_SpeedF int() = 0
+def MOVE_Crawl_SpeedB int() = 0
+## - Crawling is disabled when its speed is equal to zero
+
+#--- Jumping
+def MOVE_Jump_JumpsquatTime int() = 3
+def MOVE_Jump_JumpN_InitialMomentumX int() = 0
+def MOVE_Jump_JumpN_InitialMomentumY int() = 3000
+def MOVE_Jump_JumpB_InitialMomentumX int() = -1200
+def MOVE_Jump_JumpB_InitialMomentumY int() = 3000
+def MOVE_Jump_JumpF_InitialMomentumX int() = 1200
+def MOVE_Jump_JumpF_InitialMomentumY int() = 3000
+def MOVE_Landing_TimeEmpty int() = 6
+def MOVE_Landing_TimeAttack int() = 6
+:Variables-Disable-Air-Teching:
+def ATTACKS_Hitstun_CanRecoverInAir bool() = 0
+:Variables-CustomGravityScaling:
+var CurrentGravityScaling int() = 0
+var NumberOfHits int() = -1
+var FinalScaling int() = 0
+:Variables-Attacks-Cancels-Mine:
+## Specifies cancel rules for normals and specials
+
+#--- Light / AirLight
+def ATTACK_Light_CanCancelIntoLights bool() = 0
+def ATTACK_Light_CanCancelIntoMediums bool() = 0
+def ATTACK_Light_CanCancelIntoHeavies bool() = 0
+def ATTACK_Light_CanCancelIntoSpecials bool() = 0
+
+#--- Medium / AirMedium
+def ATTACK_Medium_CanCancelIntoLights bool() = 0
+def ATTACK_Medium_CanCancelIntoMediums bool() = 0
+def ATTACK_Medium_CanCancelIntoHeavies bool() = 0
+def ATTACK_Medium_CanCancelIntoSpecials bool() = 0
+
+#--- Heavy / AirHeavy
+def ATTACK_Heavy_CanCancelIntoLights bool() = 0
+def ATTACK_Heavy_CanCancelIntoMediums bool() = 0
+def ATTACK_Heavy_CanCancelIntoHeavies bool() = 0
+def ATTACK_Heavy_CanCancelIntoSpecials bool() = 0
+
+#--- Special / AirSpecial
+def ATTACK_Special_CanCancelIntoEX bool() = 0
+def ATTACK_Special_CanCancelIntoSuper bool() = 0
+
+#--- EX / AirEX
+def ATTACK_EX_CanCancelIntoEX bool() = 0
+def ATTACK_EX_CanCancelIntoSuper bool() = 0
+
+#--- Super / AirSuper
+
+#--- Throw / AirThrow
+:Variables:
+def GRAPHICS_UseSprites bool() = 1
+def GRAPHICS_PlayerPositionZOffset int() = 100
+def GRAPHICS_Scale int() = 3000
+def GRAPHICS_Spritesheet_3DPixelsize int() = 100000
+def GRAPHICS_Spritesheet_OriginX int() = 64
+def GRAPHICS_Spritesheet_OriginY int() = 28
+
+def GRAPHICS_Spritesheet_Path str() = res://game/characters/cogs_fighter/spritesheet_thick.png
+
+def GRAPHICS_Spritesheet_NbX int() = 4
+def GRAPHICS_Spritesheet_NbY int() = 4
+
+var animFrame int() = 0
+internal _StateFrameID
+:236H:
+AttackRegister(Heavy, 236H)
+
+AttackDamage(2000)
+AttackDuration(40)
+
+F1-9:
+	Sprite(5)
+endif
+
+F6-15:
+	Sprite(6)
+endif
+
+F15:
+	AddMomentum(1000)
+	Add(meter,50)
+	Min(meter,meterMax)
+	Max(meter, 0)
+endif
+
+
+F15-25:
+	Sprite(7)
+	Hitbox(0, 80000, 7000, 100000)
+	
+endif
+
+F25-40:
+	Sprite(8)
+endif
+
+F30:
+	V_AttackHasHit:
+		Transition(Stand)
+	endif
+endif
+:2D:
+AttackRegister(EX, 2D)
+	AttackDamage(2000)
+	AttackDuration(40)
+	AttackMomentumHit(0, 1000)
+	AttackKnockdown(30)
+	AttackFlag(ForceLanding)
+
+	F1-9:
+		Sprite(5)
+	endif
+
+	F6-15:
+		Sprite(6)
+	endif
+
+	F15:
+		AddMomentum(1000)
+		Sub(meter, 100)
+		Min(meter,meterMax)
+		Max(meter, 0)
+	endif
+
+	F15-25:
+		Sprite(7)
+		Hitbox(0, 12000, 18000, 7000)
+	endif
+
+	F25-40:
+		Sprite(8)
+	endif
+
+	F30:
+		V_AttackHasHit:
+			Transition(Stand)
+		endif
+	endif
+:5H:
+AttackRegister(Heavy, 5H)
+
+AttackDamage(2000)
+AttackDuration(40)
+## AttackFlag(SkipScaling)
+
+F1-9:
+	Sprite(5)
+endif
+
+F6-15:
+	Sprite(6)
+endif
+
+F15-25:
+	Sprite(7)
+	AttackMomentumHit(0, 1000)
+	AttackFloat(20)
+	Hitbox(0, 15000, 7000, 18000)
+	AttackCancel(236H, 236H, 7)
+	Vmeter>=200:
+		AttackCancel(2D, 2D, 7)
+	endif
+endif
+
+F25-40:
+	Sprite(8)
+endif
+:5K:
+AttackRegister(Medium, 5K)
+
+AttackDamage(1000)
+AttackDuration(20)
+
+F1-10:
+	Sprite(3)
+endif
+
+F11-17:
+	Sprite(4)
+	Hitbox(0, 11000, 18000, 7000)
+	AttackCancel(2D, 2D, 7)
+endif
+:5P:
+AttackRegister(Light, 5P)
+
+AttackDamage(1000)
+AttackDuration(20)
+
+F1-6:
+	Sprite(3)
+endif
+
+F6-10:
+	Sprite(4)
+	Hitbox(0, 11000, 18000, 7000)
+	V_AttackHasTouched:
+		InputTransition(5P, 5PP, 999)
+	endif
+endif
+:5PP:
+AttackRegister(Light, 5PP)
+
+AttackDamage(1000)
+AttackDuration(20)
+
+F1-6:
+	Sprite(3)
+endif
+
+F6-8:
+	Sprite(4)
+	Hitbox(0, 11000, 18000, 7000)
+	
+endif
+
+V_AttackHasTouched:
+		InputTransition(5P, 5P, 999)
+	endif
+:5Throw:
+# This will also initialize an attack, so you only need to put down a hitbox.
+AttackRegister(Throw)
+
+# This is your total animation time when whiffing.
+AttackDuration(30)
+AttackDamage(1000)
+
+F1-8:
+	Sprite(7)
+endif
+
+# This is the hitbox that throws.
+F8-10:
+    Hitbox(0, 10000, 0, 20000)
+endif
+:AnimAirborne:
+CallParent(AnimAirborne)
+
+Sprite(13)
+:AnimCrouching:
+CallParent(AnimCrouching)
+
+Mod(_StateFrameID, 60, animFrame)
+VanimFrame<=30:
+	Sprite(0)
+else
+	Sprite(1)
+endif
+:AnimHitstun:
+CallParent(AnimHitstun)
+
+Sprite(13)
+:AnimJumpB:
+CallParent(AnimJumpB)
+
+Sprite(12)
+:AnimJumpF:
+CallParent(AnimJumpF)
+
+Sprite(12)
+:AnimJumpN:
+CallParent(AnimJumpN)
+
+Sprite(12)
+:AnimKnockdown:
+CallParent(AnimKnockdown)
+
+Sprite(14)
+:AnimStand:
+CallParent(AnimStand)
+
+Mod(_StateFrameID, 120, animFrame)
+VanimFrame<=60:
+	Sprite(2)
+else
+	Sprite(3)
+endif
+:AnimWalkB:
+CallParent(AnimWalkB)
+
+Mod(_StateFrameID, 24, animFrame)
+VanimFrame<=8:
+	Sprite(11)
+else
+	VanimFrame<=16:
+		Sprite(10)
+	else
+		Sprite(9)
+	endif
+endif
+:AnimWalkF:
+CallParent(AnimWalkF)
+
+Mod(_StateFrameID, 24, animFrame)
+VanimFrame<=8:
+	Sprite(9)
+else
+	VanimFrame<=16:
+		Sprite(10)
+	else
+		Sprite(11)
+	endif
+endif
+:AttackCancels-Specials-EX:
+## CallParent(AttackCancels-Specials-EX)
+## Helper function to quickly add all EX special cancels to a move.
+_Helper()
+_Category(Attacks/Helpers/Cancels)
+_Overridable(If you want to manually add or remove attacks)
+
+Vmeter>=100:
+	AttackAddRegisteredCancels(EX, ATTACK_CancelFlags)
+	AttackAddRegisteredCancels(AirEX, ATTACK_CancelFlags)
+endif
+:Backdash:
+## Movement state for step dashes.
+_Category(Movement/Dashes/Steps)
+Call(StandingState)
+
+Call(AnimBackdash)
+F1-5:
+	Flag(Invul-All)
+endif
+Call(Backdash-Movement)
+
+FMOVE_Backdash_Time+:
+	Call(TransitionToNeutralState)
+endif
+:Custom-OnFirstHit:
+Set(CurrentGravityScaling, 0)
+Set(NumberOfHits, -1)
+Set(FinalScaling, 0)
+CallParent(Custom-OnFirstHit)
+:Custom-OnHit:
+CallParent(Custom-OnHit)
+
+LAFSkipScaling:
+else
+	Add(NumberOfHits, 1)
+	Add(CurrentGravityScaling, -1)
+	Mul(CurrentGravityScaling, NumberOfHits, FinalScaling)
+	## Div(FinalScaling, 4)
+endif
+:Grounded_StartDashHelper:
+## Helper to start dashes / backdashes on the ground
+_Category(Movement/Dashes/Helper)
+_Helper()
+
+LCrouching:
+else
+	IForwardPress:
+		VMOVE_Dashes_FramesSinceInputF<=MOVE_Dashes_DoubleTapTime:	
+			VMOVE_Dashes_CanRun:
+				Transition(RunStart)
+			else
+				VMOVE_Dashes_CanStepDash:
+					Transition(StepDash)
+				endif
+			endif
+		endif
+	else
+		IBackPress:
+			VMOVE_Dashes_CanBackdash:
+				VMOVE_Dashes_FramesSinceInputB<=MOVE_Dashes_DoubleTapTime:	
+					Transition(Backdash)
+				endif
+			endif
+		endif
+	endif
+endif
+:HighjumpB:
+CallParent(HighjumpB)
+Call(UseAirActionAtStart)
+:HighjumpF:
+CallParent(HighjumpF)
+Call(UseAirActionAtStart)
+:HighjumpN:
+CallParent(HighjumpN)
+Call(UseAirActionAtStart)
+:Hitstun:
+CallParent(Hitstun)
+AddMomentum(FinalScaling, FinalScaling)
+:NeutralStateCommon-Physics:
+## Helper function called from NeutralStateCommon. Handles resetting physics to standard.
+
+_Category(States/Neutral)
+_Helper()
+
+LPFGrounded:
+	Call(ApplyPhysics-Regular)
+	Set(MOVE_AirActionsRemaining, MOVE_AirActionsMax)
+endif
+:RunStop:
+## Movement state for stopping a run.
+_Category(Movement/Dashes/Run)
+Call(StandingNeutralState)
+
+Call(AnimRunStop)
+Call(RunStop-Movement)
+Call(Grounded_StartJumpHelper)
+
+FMOVE_Run_StopTime+:
+	Call(TransitionToNeutralState)
+endif
