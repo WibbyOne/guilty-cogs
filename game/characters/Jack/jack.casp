@@ -1,32 +1,10 @@
 :Character:
 ## This is the Character block, where you add some basic information about your character that can be accessed from outside, like their name or place on the select screen.
 ## You can also add another file to this with the Skeleton: property.
-
-Name: Example Fighter
-EditorName: Example Fighter
+Name: Jack
+EditorName: Nate Cotton
 Skeleton: res://game/characters/cogs_fighter/cogs_fighter.casp
 :Variables:
 ## This is the Variables block, where you can store custom variables or overwrite defined ones.You can see all available default variables by activating 'Show All Variables' in the navigation panel.
-:5p:
-AttackRegister(Punch, 5L)
-
-AttackDamage(100)
-AttackDuration(20)
-## AttackFlag(SkipScaling)
-
-F1-7:
-	Sprite(5)
-endif
-
-F8-15:
-	Sprite(6)
-endif
-
-F10-18:
-	Sprite(7)
-	AttackMomentumHit(0, 10000000)
-endif
-
-F19-20:
-	Sprite(8)
-endif
+:5H:
+CallParent(5H)
