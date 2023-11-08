@@ -2,9 +2,75 @@
 ## This is the Character block, where you add some basic information about your character that can be accessed from outside, like their name or place on the select screen.
 ## You can also add another file to this with the Skeleton: property.
 Name: Jack
-EditorName: Nate Cotton
+## EditorName: Nate Cotton
 Skeleton: res://game/characters/cogs_fighter/cogs_fighter.casp
 :Variables:
 ## This is the Variables block, where you can store custom variables or overwrite defined ones.You can see all available default variables by activating 'Show All Variables' in the navigation panel.
+var ImproviseMeter int() = 180
+var ImproviseMeterMax int() = 180
+var ImproviseMode int() = 0
+:2D:
+AttackRegister(Dust, 2D)
+	AttackDamage(0)
+	AttackDuration(40)
+	AttackMomentumHit(0, 1000)
+	AttackKnockdown(30)
+	AttackFlag(ForceLanding)
+
+	F1-9:
+		Sprite(5)
+	endif
+
+	F6-15:
+		Sprite(6)
+	endif
+
+	F15:
+		AddMomentum(1000)
+		Sub(meter, 100)
+		Min(meter,meterMax)
+		Max(meter, 0)
+	endif
+
+	F15-25:
+		Sprite(7)
+		Hitbox(5000, 12000, 18000, 2000)
+	endif
+
+	F25-40:
+		Sprite(8)
+	endif
+
+	F30:
+		V_AttackHasHit:
+			Transition(Stand)
+		endif
+	endif
+:5D:
+AttackRegister(Dust, 5D)
+AttackDuration(187)
+AttackDamage(0)
+F1: 
+	Move(10000,0)
+	Set(ImproviseMode, 1)
+endif
+
+F7+:
+	VImproviseMode == 1:
+	Sub(100, meter)
+	Min(meter,meterMax)
+	Max(meter, 0)
+	endif
+		VImproviseMeter <= 0:
+		Set(ImproviseMode, 0)
+	endif
+endif
 :5H:
-CallParent(5H)
+AttackRegister(Slash, 5H)
+AttackDamage(50)
+AttackDuration(35)
+F15-20:
+	Hitbox(7500, 17500, 7500, 15000)
+endif
+:5Throw:
+AttackRegister(Throw)
