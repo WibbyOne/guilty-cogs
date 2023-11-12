@@ -47,30 +47,83 @@ AttackRegister(Dust, 2D)
 		endif
 	endif
 :5D:
-AttackRegister(Dust, 5D)
+AttackRegister(Light, 5K)
 AttackDuration(187)
-AttackDamage(0)
-F1: 
+F1-6: 
 	Move(10000,0)
 	Set(ImproviseMode, 1)
-endif
-
-F7+:
-	VImproviseMode == 1:
-	Sub(100, meter)
+	Add(100, meter)
 	Min(meter,meterMax)
 	Max(meter, 0)
+endif
+
+F7-187:
+	VImproviseMode == 1:
+	
 	endif
 		VImproviseMeter <= 0:
 		Set(ImproviseMode, 0)
 	endif
 endif
+##
 :5H:
-AttackRegister(Slash, 5H)
+AttackRegister(Heavy, 5H)
 AttackDamage(50)
 AttackDuration(35)
 F15-20:
+Add(100, meter)
+	Min(meter,meterMax)
+	Max(meter, 0)
 	Hitbox(7500, 17500, 7500, 15000)
 endif
+:5K:
+##AttackRegister(Light, 5K)
+
+##AttackDamage(10)
+##AttackDuration(15)
+
+##F1-6:
+##	Sprite(3)
+##endif
+
+##F7-15:
+##	Sprite(4)
+##	Hitbox(0, 8000, 15000, 2000)
+##	AttackCancel(2D, 2D, 7)
+## endif
+:5P:
+AttackRegister(Medium, 5P)
+AttackDuration(20)
+AttackDamage(15)
+F1-8:
+	Sprite(3)
+endif
+
+F9-15:
+	Sprite(4)
+	Hitbox(6000, 15000, 16000, 20000)
+	V_AttackHasTouched:
+		InputTransition(5P, 5PP, 999)
+	endif
+endif
+:5PP:
+AttackRegister(Heavy, 5PP)
+
+AttackDamage(200)
+AttackDuration(15)
+
+F1-6:
+	Sprite(3)
+endif
+
+F6-8:
+	Sprite(4)
+	Hitbox(0, 20000, 18000, 7000)
+	
+endif
+
+V_AttackHasTouched:
+		InputTransition(5P, 5P, 999)
+	endif
 :5Throw:
 AttackRegister(Throw)
